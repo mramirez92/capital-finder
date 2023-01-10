@@ -15,9 +15,9 @@ class handler(BaseHTTPRequestHandler):
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
 
-        if "name" in dic:
+        if "country" in dic:
             url = "https://restcountries.com/v3.1/name/"
-            r = requests.get(url + dic["name"])
+            r = requests.get(url + dic["country"])
             data = r.json()
             country_info = []
             for country_data in data:
