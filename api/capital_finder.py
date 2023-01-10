@@ -21,12 +21,13 @@ class handler(BaseHTTPRequestHandler):
             data = r.json()
             country_info = []
             for country_data in data:
-                name = country_data["capital"][0]
-                # name = country_data["name"][0]
-                # capital = country_data["capital"][0]
+                capital = country_data["capital"][0]
+                name = country_data["name"]["common"]
+                country_info.append(capital)
                 country_info.append(name)
                 # country_info.append(capital)
-            city_capital = f" Y is the capital of {country_info[0]}"
+            city_capital = f" {country_info[0]} is the capital of {country_info[1]}"
+
         else:
             city_capital = "City not found"
 
