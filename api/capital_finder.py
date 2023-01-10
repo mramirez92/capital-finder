@@ -21,7 +21,7 @@ class handler(BaseHTTPRequestHandler):
             data = r.json()
             country_info = []
             for country_data in data:
-                name = country_data["name"][0]
+                name = country_data["name"].common
                 capital = country_data["capital"][0]
                 country_info.append(name)
                 country_info.append(capital)
