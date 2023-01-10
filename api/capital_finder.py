@@ -4,8 +4,8 @@ import requests
 
 
 class handler(BaseHTTPRequestHandler):
-
     def do_GET(self):
+        global message
         s = self.path
         url_components = parse.urlsplit(s)
         query_string_list = parse.parse_qsl(url_components.query)
