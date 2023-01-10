@@ -6,7 +6,6 @@ import requests
 class handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        # global message
         s = self.path
         url_components = parse.urlsplit(s)
         query_string_list = parse.parse_qsl(url_components.query)
@@ -27,10 +26,11 @@ class handler(BaseHTTPRequestHandler):
             message = f"The capital of {country_info[1]} is {country_info[0]}."
 
         else:
-            self.send_error(404, "Country not found.")
+            message = "Country not found"
 
         if "capital" in dic:
             url = "https://restcountries.com/v3.1/capital/"
+
             r = requests.get(url + dic["capital"])
             data = r.json()
             country = []
@@ -41,7 +41,7 @@ class handler(BaseHTTPRequestHandler):
                 country.append(name)
             message = f"{country[0]} is the capital of {country[1]} ."
         else:
-            self.send_error(404, "Capital not found.")
+            message = "Capital not found"
 
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
