@@ -22,7 +22,3 @@ ex:
 
 ## Tests
 Tests were mostly done by inputting different cities or capitals. 
-
-[check capital](https://capital-finder-mramirez92.vercel.app/api/capital_finder?capital=lima)
-
-[check country](https://capital-finder
